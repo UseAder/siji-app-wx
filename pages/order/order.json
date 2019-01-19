@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "订单详情",
+  
+  "component": true,
+  "usingComponents": {
+    "i-icon": "../../iview/icon/index",
+    
+      "i-modal": "../../iview/modal/index"
+    
+  }
+}

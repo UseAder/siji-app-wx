@@ -1,0 +1,70 @@
+
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+page{
+  background:#fff
+}
+text{color: #ccc;}
+.text-te{
+  color: #4a4a4a;
+}
+.page__hd_nav{display: flex;
+      margin: 30rpx 0;
+      background: #fff;
+      align-items: center;}
+
+.userinfo-avatar-te{width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;}
+  .btn-area{display:inline-flex ;}  
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+ overflow: hidden;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.page__bd__imation{padding:10px 30px;border-top: 10px solid #f8f8f8;color: #4a4a4a}
+.page__bd{
+ background: #fff;
+}
+.page__bd .weui-cell__bd{
+  height:56rpx;line-height: 50rpx;display: flex;justify-content: space-between;
+}
+.weui-uploader__file{border: 1px solid #ccc}
+.weui-cells{margin-top: 5px}
+.weui-cells .weui-cell{
+ padding-top: 14px;
+ border: 0;
+
+}
+.weui-uploader__bd{height: 600rpx}
+
+.page-uploader{flex-wrap: wrap;border-top: 10px solid #f8f8f8;background: #fff;padding: 10px 10px 0 10px ;overflow: hidden;display: flex;justify-content: space-around;color: #888;}
+
+.page-uploader-list{float: left;padding:0 2%;
+  width: 79px;margin: 2PX;padding-bottom:6px;position: relative
+
+}
+.page-uploader-list-icon{position:absolute;
+z-index:2;
+left:121rpx;
+
+top:10rpx;
+
+
+}
+
+.page-uploader-list-tu{height: 158rpx;width: 158rpx;}
+.page-uploader-list-text{text-align: center;}
+
+.weui-uploader__input{opacity: 1} 
+.page-uploader__file_status{position: relative}
+.page-uploader__file-content{position: absolute;left: 50%;top: 50%;-webkit-transform:translate(-50%,-50%);
+transform:translate(-50%,-50%);font-size: 18px;font-weight:bold;color: #888
+}

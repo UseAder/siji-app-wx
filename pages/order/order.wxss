@@ -1,0 +1,50 @@
+map{width: 100%;height:100%}
+.wh{width: 100%;height: 100%;background: #ccc;}
+.Explanatory{color: #999;}
+
+
+.xiaoyuna{background:#cdcdcd;width:6px;height:6px;border-radius:100%;display: inline-block;margin:0 9px 2px 16px;}
+.xian{background:#4775ff;position: absolute;top: 14px;width:4px;left: 0px;height:16px;margin-right: 10px;line-height: 44px;}
+
+.page__nav-title{font-size:22px;}
+.page__nav {padding:15px 0 10px 0;background: #fff;position: relative} 
+.page__nav-xain{position: absolute;background:#e5e5e5;left: 23px;top:47px;
+width:2px; 
+height:38px;}
+.page__nav .Explanatory{color: #999;padding-left: 43px;padding-bottom: 5px}
+.page__nav i-icon{padding:0 3px 0 12px;}
+.page__map{background:#ffffff;padding:15px 12px 15px 12px;height:160px;}
+.page__cell{background: #fff;margin: 11px 0;} 
+.page__cell .page-cell-title-hd,.page__list .page-list-title-hd{height:44px;position: relative;padding-left: 17px;
+line-height:44px;border:none;font-size:16px;color:#000000;border-bottom:1px solid #d8d8d8;}
+.page__cell .page-cell-title-bd{border-bottom:1px solid #d8d8d8;margin:0 17px;padding: 9px 0;}
+.page__cell .page-cell-title-fd{padding:12px 0 ;position: relative;}
+.page-cell-title-fd-xain1{background:#e5e5e5;width:2px;height:16px;position: absolute;top: 59px;left:18px;}
+.page-cell-title-fd-xain2{background:#e5e5e5;width:2px;height:16px;position: absolute;top: 32px;left:18px;}
+.title-bd-li{height: 27px;line-height: 27px;}
+.page__list{background: #fff;padding-bottom: 52px;}
+.page__list .page-list-title-bd{padding:0 17px 12px 17px;border-bottom: 6px solid #f8f8f8;}
+.page-list-title-nav{display: flex;justify-content: space-between;padding: 10px 0}
+.page-list-title-nav .weui-cell__bd{font-size: 16px;}
+.page__list text,.page__cell text{color:#4a4a4a;}
+.page-list-title-nav .weui-cell__bd{color:#000;}
+.page-list-title-nav .weui-cell__bd text{color:#000;}
+
+.page__footer-1{z-index: 1000;
+  position: fixed;bottom: 0;background: #FFF;width: 100%;display: flex;justify-content: center;box-shadow:0 0 8px 0 rgba(0,0,0,0.06);
+
+}
+
+
+progress{width: 216rpx;text-align: center;}
+
+.page__footer-progress{position: relative;display: flex;justify-content: center;color: #fff;border-radius:3px;
+overflow:hidden;
+margin:10px 0 8px 0;
+}
+.page__footer-progress .progress-text{position: absolute;bottom:9px;
+}
+
+
+.bd-body-button{background:#ff5e30;border-radius:3px; font-size:16px;color:#ffffff;width: 216rpx;text-align: center;margin: 0 auto}
+.weiqianshou{color:#ff5e30;}

@@ -1,0 +1,76 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="weui-tab">
+      <view class="weui-navbar weui-navbar-J">
+        <block wx:for="{{tabs}}" wx:key="this">
+          <view class="weui-navbar__item {{activeIndex == item.current ? 'weui-bar__item_on' : ''}}" bindtap="handleChange" data-id="{{item.current}}">
+            <view class="weui-navbar__title">{{item.name}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="page__hd-padding" style="padding-top: 88rpx;height:100%;">
+        <view class="weui-tab__content weui-tab__content0">
+          <view class="page__bd">
+            <block wx:for="{{records}}" wx:key="item">
+              <view class="page__cell" data-id="{{item.id}}" bindtap="yushuzhong">
+                <view class="weui-cell page-cell-title">
+                  <view class="weui-cell__bd">
+                    <view class='inline-block xian'></view>{{item.outOrderNo}}
+                  </view>
+                  <view class="weui-cell__ft">
+                    <block wx:if="{{item.status == 5}}">
+                      <text class='J-jinxingzhong'>运输中</text>
+                    </block>
+                    <block wx:elif="{{item.status == 10}}">
+                      <text class='J-yiwancheng'>已完成</text>
+
+                    </block>
+                    <block wx:else>
+                      <text class='J-jiedan'>待接单</text>
+                    </block>
+                  </view>
+                </view>
+                <view class="weui-cell page-cell-body">
+                  <view class="bd-body-ul">
+                    <!-- <view class="bd-body-ul-title">
+                      {{item.shipperCityName}}
+                      <view class='hxian inline-block'></view>
+                      <view class='sanjiao inline-block'></view> {{item.consigneeCountyNames}}
+                    </view> -->
+                    <view class="bd-body-ul-body">
+                      <!-- <view class="bd-body-ul-li">
+                        <view class="Explanatory inline-block">
+                          <text decode="{{true}}" space="{{true}}">业务单号：</text>
+                        </view>{{item.outOrderNo}}
+                      </view> -->
+                      <!-- <view class="bd-body-ul-li">
+                        <view class="Explanatory inline-block">
+                          <text decode="{{true}}" space="{{true}}">运&emsp;&emsp;费：</text>
+                        </view>{{item.freight}}元
+                      </view> -->
+                      <view class="bd-body-ul-li">
+                        <view class="Explanatory inline-block">
+                          <text decode="{{true}}" space="{{true}}">发&ensp;货&ensp;方：</text>
+                        </view>{{item.shipperName}}
+                      </view>
+                      <view class="bd-body-ul-li">
+                        <view class="Explanatory inline-block">
+                          <text decode="{{true}}" space="{{true}}">票&emsp;&emsp;数：</text>
+                        </view>{{item.waybillNum}}票
+                      </view>
+                      <view class="bd-body-ul-li">
+                        <view class="Explanatory inline-block">
+                          <text decode="{{true}}" space="{{true}}">派单时间：</text>
+                        </view>{{item.createTime?item.createTime:''}}
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

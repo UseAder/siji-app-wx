@@ -1,0 +1,32 @@
+/* pages/myorder/imation/modify/modify.wxss */
+page{
+padding: 10px 0;height: 100%;background:#fff
+}
+.page-bady{background: #fff;padding:0 0 0 13px;}
+.weui-bottom{
+  width: 70%;margin: 0 auto;padding: 30px 0
+}
+
+
+
+
+.section{
+position:relative;
+padding:12px 15px;
+display:flex;
+background:#fff;
+align-items:center;
+line-height:1.4;
+font-size:14px;
+overflow:hidden;
+border:0 solid #e9eaec;
+border-bottom-width:1px;
+
+}
+.section .text-te{
+color:#495060;
+min-width:65px;
+padding-right:10px;}
+.section input{
+width:100%;
+}

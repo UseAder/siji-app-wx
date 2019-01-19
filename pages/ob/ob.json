@@ -1,0 +1,14 @@
+  {
+ "navigationBarTitleText": "订单",
+    "onReachBottomDistance":0,
+    "component": true,
+    
+    "enablePullDownRefresh": false,
+    "disableScroll":false,
+    
+    "usingComponents": {
+     
+      "i-tabs": "../../../iview/tabs/index",
+      "i-tab": "../../../iview/tab/index"
+    }
+  }

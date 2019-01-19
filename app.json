@@ -1,0 +1,50 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/waybil/waybil",
+    
+    "pages/myorder/myorder",
+    "pages/logs/logs",
+    "pages/order/order",
+    
+    
+   
+    "pages/ob/ob","pages/home/home",
+    "pages/myorder/imation/imation",
+    "pages/myorder/imation/modify/modify"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "货速运司机端",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#84888e",
+    "selectedColor": "#4775ff",
+    "backgroundColor": "#fff",
+    "borderStyle": "#aeaeae",
+    "list": [
+      {
+        "selectedIconPath": "images/home1.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/order1.png",
+        "iconPath": "images/order.png",
+        "pagePath": "pages/ob/ob",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "images/myorder1.png",
+        "iconPath": "images/myorder.png",
+        "pagePath": "pages/myorder/myorder",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+<view class="page">
+
+  <view class="page__list weui-tab__content2">
+    <view class="page-list-title">
+      <view class='page-list-title-bd'>
+        <view class="page-list-title-nav">
+          <view class="weui-cell__bd">
+            <text>单号：</text>{{detailsOfTheWaybill.waybillNo}}</view>
+          <view wx:if="{{detailsOfTheWaybillstatus == 10}}">
+            <view class="weui-cell__ft yiqianshou">已签收</view>
+          </view>
+          <view wx:else>
+            <view class="weui-cell__ft weiqianshou">未签收</view>
+          </view>
+
+        </view>
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">货&emsp;&emsp;物：</text>
+          </view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.goodsName}}'>{{detailsOfTheWaybill.goodsName}}</view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.goodsNum}}'>，{{detailsOfTheWaybill.goodsNum}}件</view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.goodsWeight}}'>，{{detailsOfTheWaybill.goodsWeight}}千克</view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.goodsBulk}}'>，{{detailsOfTheWaybill.goodsBulk}}立方</view>
+        </view>
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">收&ensp;货&ensp;人：</text>
+          </view>{{detailsOfTheWaybill.consigneeName}}
+        </view>
+
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">联系电话：</text>
+          </view>{{detailsOfTheWaybill.consigneeMobile}}
+        </view>
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">地&emsp;&emsp;址：</text>
+          </view>{{detailsOfTheWaybill.consigneeAddress}}
+        </view>
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">回&emsp;&emsp;单：</text>
+          </view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.receiptNum}}'>{{detailsOfTheWaybill.receiptNum}}份</view>
+
+        </view>
+
+        <view class="title-bd-li">
+          <view class="Explanatory inline-block">
+            <text decode="{{true}}" space="{{true}}">需收到付费：</text>
+          </view>
+          <view class=" inline-block" wx:if='{{detailsOfTheWaybill.dfFee}}'> ￥{{detailsOfTheWaybill.dfFee}}元</view>
+
+
+        </view>
+        {{markers.longitude}}
+      </view>
+    </view>
+  </view>
+  <view class="page__map">
+    <view class='wh'>
+      <map id="map" longitude="{{map.lng}}" latitude="{{map.lat}}" scale="14" markers="{{map.markers}}" bindmarkertap="markertap" wx:if="{{map.hasMarkers}}"></map>
+    </view>
+  </view>
+  <view class="page__weui-uploader">
+    <view class="weui-uploader__title ">货物照片</view>
+    <view class="weui-uploader__bd ">
+      <view class="weui-uploader__files" id="uploaderFiles">
+        <block wx:for="{{goodsPicView}}" wx:key="this">
+          <view class="weui-uploader__file" bindtap="goodsPicPreviewImage" id="{{goodsPicViewNew[index]}}">
+
+            <block wx:if="{{detailsOfTheWaybillstatus != 10}}">
+
+              <view class='page-uploader-list-icon'>
+                <icon type="clear" size="20" catchtap="goodsPicPreviewImageIcon" data-index='{{index}}' />
+              </view>
+            </block>
+
+            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          </view>
+        </block>
+        <block wx:if="{{detailsOfTheWaybillstatus == 5}}">
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="goodsPicChooseImage"></view>
+          </view>
+        </block>
+      </view>
+
+    </view>
+  </view>
+  <view class="page__weui-uploader Return">
+    <view class="weui-uploader__title ">回单照片</view>
+    <view class="weui-uploader__bd ">
+      <view class="weui-uploader__files" id="uploaderFiles">
+        <block wx:for="{{receiptPicView}}" wx:key="this">
+          <view class="weui-uploader__file" bindtap="receiptPicPreviewImage" id="{{receiptPicViewNew[index]}}">
+            <block wx:if="{{detailsOfTheWaybillstatus != 10}}">
+              <view class='page-uploader-list-icon'>
+                <icon type="clear" size="20" catchtap="receiptPicPreviewImageIcon" data-index='{{index}}' />
+              </view>
+            </block>
+
+            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          </view>
+        </block>
+        <block wx:if="{{detailsOfTheWaybillstatus == 5}}">
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="receiptPicChooseImage"></view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="page__footer page__footer-2">
+    <block wx:if="{{detailsOfTheWaybillstatus == 10}}">
+      <button class="footer-butto">已签收，签收时间（{{detailsOfTheWaybillsignTime}}）</button>
+
+    </block>
+    <block wx:elif="{{detailsOfTheWaybillstatus == 5}}">
+      <button class="footer-butto" bindtap="normalReceiptClickOpen">签收</button>
+
+
+    </block>
+    <block wx:else>
+      <button class="footer-butto" disabled="true">当前页需要接单后才可操作</button>
+
+    </block>
+  </view>
+  <cover-view class="modal-dialog" wx:if="{{pohtovisible}}">
+    <cover-view class='modal-body'>
+      <cover-view class="modal-title">签收确认</cover-view>
+     <cover-view class="modal-content">
+      <cover-view wx:if="{{goodsPicView==''&&receiptPicView!=''}}">检测到货物照片存在未传，是否进行签收</cover-view>
+      <cover-view wx:if="{{receiptPicView==''&&goodsPicView!=''}}">检测到回单照片存在未传，是否进行签收</cover-view>
+      <cover-view wx:if="{{receiptPicView==''&&goodsPicView==''}}">检测到货物照片和回单照片存在未传，是否进行签收</cover-view>
+     </cover-view>
+      <cover-view class="modal-footer">
+        <cover-view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</cover-view>
+        <cover-view class="btn-confirm" bindtap="onPohtoReceiptClickConfirm" data-status="confirm">确定</cover-view>
+
+      </cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class="modal-dialog" wx:if="{{normalvisible}}">
+    <cover-view class='modal-body'>
+      <cover-view class="modal-title">签收确认</cover-view>
+      <cover-view class="modal-content">
+        <cover-view wx:if="{{detailsOfTheWaybill.dfFee||detailsOfTheWaybill.receiptNum}}">
+          <cover-view wx:if="{{detailsOfTheWaybill.dfFee}}">该单有到付运费 , 是否确认签收 </cover-view>
+          <cover-view wx:if="{{detailsOfTheWaybill.receiptNum}}">该单有回单 , 是否确认签收 </cover-view>
+        </cover-view>
+        <cover-view wx:else>是否确认签收</cover-view>
+      </cover-view>
+      <cover-view class="modal-footer">
+        <cover-view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</cover-view>
+        <cover-view class="btn-confirm" bindtap="onNormalvisibleConfirm" data-status="confirm">确定</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</view>

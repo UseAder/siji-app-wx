@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-tag": "../../iview/tag/index",
+  
+    "i-modal": "../../iview/modal/index"
+  }
+}

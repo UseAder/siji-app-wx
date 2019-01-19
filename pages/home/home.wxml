@@ -1,0 +1,119 @@
+<view class="page">
+  <cover-view class="modal-dialog" wx:if='{{villageConfirm}}'>
+    <cover-view class='modal-body'>
+      <cover-view class="modal-title">地理位置授权确认</cover-view>
+      <cover-view class="modal-content">需要获取您的地理位置，请确认授权，否则地图功能将无法使用</cover-view>
+      <cover-view class="modal-footer">
+        <cover-view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</cover-view>
+        <cover-view class="btn-confirm" bindtap="onCancel">
+          <button open-type="openSetting" class='openSetting'>打开授权设置</button>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>  
+  <view class="page__hd">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="page__nav">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">签到时间：{{signInDate?signInDate:''}}</view>
+      <view class="weui-cell__ft" bindtap="signIn">
+        <i-tag bindchange="" checkable="{{true}}" checked="{{tags.checked}}" name="{{tags.name}}" color="qianhong" type="border"> {{tags.name}}</i-tag>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{jieDanHidden}}">
+    <view class="page__bd">
+      <view class="page__title">待接单的订单</view>
+      <block wx:for="{{records}}" wx:key="item">
+        <view class='positionR'>
+          <view class="page__cell" data-id="{{item.id}}" bindtap="receiptOreder">
+            <view class="weui-cell page-cell-title">
+              <view class="weui-cell__bd">
+                <view class='inline-block xian'></view>{{item.outOrderNo}}
+              </view>
+              <view class="weui-cell__ft"><text class='J-jiedan'>待接单</text></view>
+            </view>
+            <view class="weui-cell page-cell-body">
+              <view class="bd-body-ul">
+                <view class="bd-body-ul-body">
+                <view class="bd-body-ul-li">
+                    <view class="Explanatory inline-block">
+                      <text decode="{{true}}" space="{{true}}">业务单号：</text>
+                    </view>{{item.shipperName}}
+                  </view>
+
+                  <view class="bd-body-ul-li">
+                    <view class="Explanatory inline-block">
+                      <text decode="{{true}}" space="{{true}}">票&emsp;&emsp;数：</text>
+                    </view>{{item.waybillNum}}票
+                  </view>
+                  <view class="bd-body-ul-li">
+                    <view class="Explanatory inline-block">
+                      <text decode="{{true}}" space="{{true}}">派单时间：</text>
+                    </view>{{item.createTime?item.createTime:''}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+  
+        </view>
+      </block>
+    </view>
+  </view>
+  <block wx:if="{{notSigned}}">
+    <view class="page__bd">
+      <view class="page__title ">待签收的运单</view>
+      <block wx:for="{{notSigned}}" wx:key="item">
+        <view class="page__cell" data-id="{{item.id}}" bindtap="weiqianshou">
+          <view class="weui-cell page-cell-title">
+            <view class="weui-cell__bd">
+              <view class='inline-block xian'></view>{{item.waybillNo}}
+            </view>
+            <view class="weui-cell__ft">{{item.shipperName}}</view>
+          </view>
+          <view class="weui-cell page-cell-body">
+            <view class="bd-body-ul">
+              <view class="bd-body-ul-body">
+                <view class="bd-body-ul-li">
+                  <view class="Explanatory inline-block">
+                    <text decode="{{true}}" space="{{true}}">货&emsp;&emsp;物：</text>
+                  </view>
+                  <view class=" inline-block" wx:if='{{item.goodsName}}'>{{item.goodsName}}</view>
+                  <view class=" inline-block" wx:if='{{item.goodsNum}}'>，{{item.goodsNum}}件</view>
+                  <view class=" inline-block" wx:if='{{item.goodsWeight}}'>，{{item.goodsWeight}}千克</view>
+                  <view class=" inline-block" wx:if='{{item.goodsBulk}}'>，{{item.goodsBulk}}立方</view>
+
+
+                </view>
+                <view class="bd-body-ul-li">
+                  <view class="Explanatory inline-block">
+                    <text decode="{{true}}" space="{{true}}">收&ensp;货&ensp;人：</text>
+                  </view>{{item.consigneeName}}
+                </view>
+                <view class="bd-body-ul-li">
+                  <view class="Explanatory inline-block">
+                    <text decode="{{true}}" space="{{true}}">联系电话：</text>
+                  </view>{{item.consigneeMobile}}
+                </view>
+                <view class="bd-body-ul-li">
+                  <view class="Explanatory inline-block">
+                    <text decode="{{true}}" space="{{true}}">地&emsp;&emsp;址：</text>
+                  </view>{{item.consigneeAddress}}
+                </view>
+              </view>
+            </view>
+            <button class="bd-body-button " id='yushuzhong'>未签收</button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

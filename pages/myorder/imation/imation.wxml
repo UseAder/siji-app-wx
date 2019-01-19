@@ -1,0 +1,143 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="container">
+      <view class="userinfo">
+        <view class="userinfo-avatar">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="userinfo-nickname">
+          <open-data type="userNickName"></open-data>
+          
+          <navigator style="margin-left:10px;color:#1296db;display: inline-block" url='modify/modify'>修改</navigator>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd">
+      <view class='page__bd__imation'>
+        <view class="weui-cell__bd">
+          <text decode="{{true}}" class='text-te'> 车&emsp;型 : </text>
+          <text>{{myInfoFun.truckModel}}</text>
+        </view>
+        <view class="weui-cell__bd">手机号 :
+          <text>{{myInfoFun.account}}</text>
+        </view>
+        <view class="weui-cell__bd">身份证 :
+          <text>{{myInfoFun.idCard}}</text>
+        </view>
+        <view class="weui-cell__bd">车牌号 :
+          <text>{{myInfoFun.plateNumbe}}</text>
+        </view>
+        <view class="weui-cell__bd">驾驶证 :
+          <text>{{myInfoFun.driverLicense}}</text>
+        </view>
+        <view class="weui-cell__bd">行驶证 :
+          <text>{{myInfoFun.truckLicense}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style=''>
+    <view class='page-uploader '>
+      <view  class='page-uploader-list'>
+        <view wx:if="{{idCardFrontNew}}" class='page-uploader-list-icon' bindtap="previewImage" id="{{idCardFrontNew}}">
+          <icon type="search" size="20" />
+        </view>
+        <view class='page-uploader-list-tu' bindtap="chooseImage">
+          <view class=" ">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{idCardFront}}">
+              <image class="weui-uploader__img" src="{{idCardFront}}" mode="aspectFill" />
+
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          身份证正面
+        </view>
+      </view>
+      <view class='page-uploader-list'>
+        <view wx:if="{{idCardBehindNew}}" class='page-uploader-list-icon' bindtap="previewImage1" id="{{idCardBehindNew}}">
+          <icon type="search" size="20" />
+        </view>
+
+
+
+        <view class='page-uploader-list-tu' bindtap="chooseImage1">
+          <view class=" ">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{idCardBehind}}">
+              <image class="weui-uploader__img" src="{{idCardBehind}}" mode="aspectFill" />
+
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          身份证反面
+        </view>
+      </view>
+      <view class='page-uploader-list'>
+        <view wx:if="{{driverLicensePicNew}}" class='page-uploader-list-icon' bindtap="previewImage2" id="{{driverLicensePicNew}}">
+          <icon type="search" size="20" />
+        </view>
+
+        <view class='page-uploader-list-tu' bindtap="chooseImage2">
+          <view class="">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{driverLicensePic}}">
+              <image class="weui-uploader__img" src="{{driverLicensePic}}" mode="aspectFill" />
+
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          驾驶证
+        </view>
+      </view>
+      <view class='page-uploader-list'>
+        <view wx:if="{{truckLicensePicNew}}" class='page-uploader-list-icon' bindtap="previewImage3" id="{{truckLicensePicNew}}">
+          <icon type="search" size="20" />
+        </view>
+        <view class='page-uploader-list-tu' bindtap="chooseImage3">
+          <view class="">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{truckLicensePic}}">
+              <image class="weui-uploader__img" src="{{truckLicensePic}}" mode="aspectFill" />
+
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          行驶证
+        </view>
+      </view>
+      <view class='page-uploader-list'>
+        <view wx:if="{{truckPicOneNew}}"  class='page-uploader-list-icon' bindtap="previewImage4" id="{{truckPicOneNew}}">
+          <icon type="search" size="20" />
+        </view>
+        <view class='page-uploader-list-tu' bindtap="chooseImage4">
+          <view class="">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{truckPicOne}}">
+              <image class="weui-uploader__img" src="{{truckPicOne}}" mode="aspectFill" />
+
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          车辆照片1
+        </view>
+      </view>
+      <view class='page-uploader-list'>
+      
+        <view wx:if="{{truckPicTwoNew}}" class='page-uploader-list-icon' bindtap="previewImage5" id="{{truckPicTwoNew}}">
+          <icon type="search" size="20" />
+        </view>
+        <view class='page-uploader-list-tu' bindtap="chooseImage5">
+          <view class="">
+            <view class="weui-uploader__file page-uploader__file_status" id="{{truckPicTwo}}">
+              <image class="weui-uploader__img" src="{{truckPicTwo}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+        <view class='page-uploader-list-text'>
+          车辆照片2
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

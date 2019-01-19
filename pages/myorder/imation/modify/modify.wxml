@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="page-bady">
+     <view class="section">
+        <text decode="{{true}}" class='text-te'> 姓&emsp;名</text><input placeholder-style="color:#b8b8b8;"  placeholder="请输入您的名称" value="{{ name }}"  bindinput="name" />
+      </view>
+        <view class="section">
+        <text decode="{{true}}" class='text-te'> 车&emsp;型</text><input placeholder-style="color:#b8b8b8;" placeholder="请输入车型 例:奥迪666" value="{{ truckModel }}"  bindinput="truckModel" />
+      </view>
+      <view class="section">
+        <text decode="{{true}}" class='text-te'> 身份证</text><input placeholder-style="color:#b8b8b8;" placeholder="请输入身份证" value="{{ idCard }}"  bindinput="idCard" />
+      </view>
+        <view class="section">
+        <text decode="{{true}}" class='text-te'> 车牌号</text><input placeholder-style="color:#b8b8b8;"  placeholder="请输入车牌号 例:浙A88888" value="{{ plateNumbe }}"  bindinput="plateNumbe" />
+      </view>
+      <view class="section">
+        <text decode="{{true}}" class='text-te'> 驾驶证</text><input placeholder-style="color:#b8b8b8;" placeholder="请输入驾驶证" value="{{ driverLicense }}"  bindinput="driverLicense" />
+      </view>
+        <view class="section">
+        <text decode="{{true}}" class='text-te'> 行驶证</text><input placeholder-style="color:#b8b8b8;" placeholder="请输入行驶证" value="{{ truckLicense }}"  bindinput="truckLicense" />
+      </view>
+    <view class="weui-bottom">
+      <button type="primary" bindtap="showTopTips">确定</button>
+    </view>
+  </view>
+</view>
